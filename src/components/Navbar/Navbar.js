@@ -15,7 +15,7 @@ export const Navbar = () => {
             <nav>
                 <ul>
                     <li></li>
-                    <li> <a href="#about"> User Settings </a> </li>
+                    <li> <a href="/settings"> User Settings </a> </li>
                     <li><img src={bell} width="20px" alt="bell" /></li>
                     <li> <a class="login" href="/login">SignOut</a></li>
                     <li><img src={user} width="20px" alt="user" /></li>
