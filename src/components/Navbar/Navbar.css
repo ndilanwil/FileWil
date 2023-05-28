@@ -1,0 +1,11 @@
+.search {
+    border: none;
+    width: 400px;
+    height: 100%;
+    border-bottom: 1px solid black;
+}
+
+.HeaderHome {
+    box-shadow: inset;
+    border-bottom: 3px solid #0b2243;
+}

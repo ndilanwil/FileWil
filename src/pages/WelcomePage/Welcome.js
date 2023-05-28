@@ -6,7 +6,7 @@ import usage from "../../images/coming.png"
 
 export const Welcome = () => {
     return(
-    <div>
+    <div class="body">
         <header>
             <a href="/">
                 <img src={logo} width="200px" alt="File.Wil"/>
@@ -81,7 +81,7 @@ export const Welcome = () => {
                 <img src={team} width="60%" alt="" />
             </div>
             </section>
-            <footer>
+            <footer class="WelF">
                 <p>FileWil - <a href="/">Description</a> - &#169; copyright | ndilanwil </p>
             </footer>
         </div>

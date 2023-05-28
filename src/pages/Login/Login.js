@@ -48,7 +48,7 @@ export const Login = () =>{
                 </div>
             </div>
     </div>
-    <footer>
+    <footer class="LoginFooter">
         <p>
             Techway.school - <a href="/">Description</a> - &#169; copyright | Code of Duty </p>
     </footer>
