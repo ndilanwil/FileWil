@@ -1,7 +1,7 @@
 import "./Login.css"
-import {useEffect, useState} from "react"
+import {useState} from "react"
 import register from "../../components/Authentifications/registration"
-import login from "../../components/Authentifications/login"
+import Log from "../../components/Authentifications/login"
 import createUserFolder from "../../components/Bucket/createUserFolder"
 import { useNavigate } from "react-router-dom";
 
@@ -12,7 +12,6 @@ export const Login = () =>{
     const [username, setUserName] = useState('')
     const [cpassword, setcPassword] = useState('')
     const [isContainerActive, setIsContainerActive] = useState(false);
-    const container = document.getElementById('container');
     const signUp = () => {setIsContainerActive(true)}
     const signIn = () => {setIsContainerActive(false)}
     const Valid = async () => {
@@ -25,6 +24,13 @@ export const Login = () =>{
             window.alert("Passwords must be the same");
         }
     }
+    const user = Log(username,password) 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        if(user===true){
+            navigate("/home")
+        }
+      }
     return(
         <div class="log">
             <a class="home" href="./" style={{color: "#4fb9e9"}}> &larr; Home</a>
@@ -41,13 +47,13 @@ export const Login = () =>{
                 </form>
             </div>
             <div class="form-container sign-in-container">
-                <form onSubmit={login(username,password)} >
+                <form onSubmit={handleSubmit} >
                     <h1 style={{color: "#0b2243"}}>Sign in</h1>
                     <br/><br/>
                     <input type="text" name="username" onChange={e => setUserName(e.target.value)} placeholder="Username" required/>
                     <input type="password" name="password" onChange={e => setPassword(e.target.value)} placeholder="Password" required/>
                     <a href="/login">Forgot your password?</a>
-                    <button class="button" type="submit" onClick={login(username,password)}>Sign in</button>
+                    <button class="button" type="submit">Sign in</button>
                 </form>
             </div>
             <div class="overlay-container">

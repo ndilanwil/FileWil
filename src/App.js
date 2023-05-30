@@ -1,11 +1,9 @@
-import ReactDOM from "react-dom/client"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
 import {Welcome}  from "./pages/WelcomePage/Welcome"
 import {Login} from "./pages/Login/Login"
 import {Home} from "./pages/HomePage/Home"
 import {Settings} from "./pages/Settings/Settings"
-import ImageUploader from "./components/test/test"
 
 function App() {
   return (
