@@ -18,6 +18,7 @@ export const Login = () =>{
         if(cpassword === password){
             register(username,email,password)
             createUserFolder(username)
+            localStorage.setItem("path", username+"/")
             navigate("/home")
         }
         else{

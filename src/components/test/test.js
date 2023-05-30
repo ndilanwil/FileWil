@@ -47,6 +47,21 @@ export default function ImageUploader() {
             else     console.log(data.Contents);           // successful response
           });
       };
+      // const main = async () => {
+      //   var params = {
+      //     Bucket: 'dropbox43',
+      //     Key: 'test/your-file-name',
+      //     Body: 'your-file-content'
+      //   };
+        
+      //   s3.putObject(params, function(err, data) {
+      //     if (err) {
+      //       return 'There was an error viewing your album: ' + err.message
+      //     } else {
+      //       console.log('File uploaded successfully');
+      //     }
+      //   })
+      //   };
     //   const main = async () => {
     //     const bucketName = 'dropbox43';
     //     const key = 'img5.jpg';

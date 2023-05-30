@@ -10,10 +10,9 @@ AWS.config.update({
 const s3 = new AWS.S3();
 
 export default function createUserFolder(name){
-    console.log("yeah")
     s3.putObject({
       Bucket: 'dropbox43',
-      Key: `${name}/`,
+      Key: name + "/",
       Body: ''
     }, (err, data) => {
         if (err) {

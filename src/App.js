@@ -4,8 +4,10 @@ import {Welcome}  from "./pages/WelcomePage/Welcome"
 import {Login} from "./pages/Login/Login"
 import {Home} from "./pages/HomePage/Home"
 import {Settings} from "./pages/Settings/Settings"
+import viewFolder from "./components/Bucket/viewFolder"
 
 function App() {
+  viewFolder("test/")
   return (
     <BrowserRouter>
       <Routes>
