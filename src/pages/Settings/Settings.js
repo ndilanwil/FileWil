@@ -42,7 +42,7 @@ export const Settings = () => {
             <div class="d-sm-flex align-items-center pt-3" id="deactivate">
                 <div>
                     <b style={{color: "#0b2243"}}>Deactivate your account</b>
-                    <p>Details about your company account and password</p>
+                    <p>This will completely remove your account from File.Wil</p>
                 </div>
                 <div class="ml-auto">
                     <button class="btn danger">Deactivate</button>

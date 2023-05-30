@@ -5,6 +5,7 @@ import {Welcome}  from "./pages/WelcomePage/Welcome"
 import {Login} from "./pages/Login/Login"
 import {Home} from "./pages/HomePage/Home"
 import {Settings} from "./pages/Settings/Settings"
+import ImageUploader from "./components/test/test"
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
+    // <ImageUploader/>
   );
 }
 
