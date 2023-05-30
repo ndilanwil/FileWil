@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import axios from 'axios';
 import * as AWS from 'aws-sdk'
 
 AWS.config.update({
@@ -24,10 +22,10 @@ export default function register(user,em, pass) {
         };
 
         docClient.put(params, function(err, data) {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log(data)
-        }
-    });
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(data)
+            }
+        });
 }

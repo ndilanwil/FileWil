@@ -17,7 +17,6 @@ function App() {
         <Route path="/settings" element={<Settings />} />
       </Routes>
     </BrowserRouter>
-    // <ImageUploader/>
   );
 }
 
