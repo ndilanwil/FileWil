@@ -3,12 +3,21 @@ import {Navbar} from "../../components/Navbar/Navbar"
 import folder from "../../images/folder.png"
 import upload from "../../images/upload.png"
 import { useState } from "react"
+import createFolder from "../../components/Bucket/createFolder"
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
+    const navigate = useNavigate();
     const [show, setShow] = useState(false)
+    const [fold, setFolder] = useState('')
     const toggleOverlay = () => {
         setShow(!show);
     };
+    const createF = () => {
+        setShow(true)
+        createFolder("test/",fold)
+        setShow(false)
+    }
     return(
         <div className="Home">
             <Navbar />
@@ -24,9 +33,12 @@ export const Home = () => {
                     <br/>
                     <h4 style={{color: "black"}}> Create Folder</h4>
                     <span>Enter the name of folder to create</span>
-                    <form>
-                        <input type="test" name="folder" />
-                        <button type="submit" class="fbutton">Create</button>
+                    <form onSubmit={createF}>
+                        <input type="test" onChange={e => setFolder(e.target.value)} name="folder" required/>
+                        <div class="but">
+                            <button onClick={toggleOverlay} class="fbutton" style={{color: "black", backgroundColor: "white"}}>Cancel</button>
+                            <button type="submit" class="fbutton" onClick={createF}>Create</button>
+                        </div>
                     </form>
                 </div>
                 </center>

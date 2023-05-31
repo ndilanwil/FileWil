@@ -45,3 +45,7 @@
     height: 100vh;
     background-color: rgba(119, 118, 118, 0.384);
 }
+
+.but button {
+    cursor: pointer;
+}
