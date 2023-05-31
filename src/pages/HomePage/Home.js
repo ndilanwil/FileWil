@@ -76,8 +76,8 @@ export const Home = () => {
                         })
                     }
                     { 
-                        fi.map((folder, index) => {
-                            return <Files name={folder}/>
+                        fi.map((file) => {
+                            return <Files name={file}/>
                         })
                     }
                     {

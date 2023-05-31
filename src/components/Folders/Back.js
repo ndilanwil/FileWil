@@ -4,7 +4,9 @@ import closeFolder from "../Bucket/closeFolder"
 const Files = (props) => {
     const handleClick = (e) => {
         e.preventDefault();
-        closeFolder()
+        console.log(closeFolder())
+        localStorage.setItem("path",closeFolder())
+        console.log(localStorage.getItem("path"))
       }
     return(
         <div class="Folder">

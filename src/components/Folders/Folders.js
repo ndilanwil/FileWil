@@ -33,7 +33,7 @@ const Folders = (props) => {
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <img src={folder} alt="folder" width="30" />
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <label style={{color: "black", fontSize: "20px"}}>{props.name}</label>
+                <label onClick={handleClick} style={{color: "black", fontSize: "20px"}}>{props.name}</label>
                 </div>
                 <button class="delete">
                         <img src={del} alt="delete" width="20" height="20" />
