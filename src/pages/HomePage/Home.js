@@ -8,8 +8,10 @@ import { useNavigate } from "react-router-dom";
 import ViewFiles from "../../components/Bucket/viewFiles"
 import ViewFolders from "../../components/Bucket/viewFolders"
 import Folders from "../../components/Folders/Folders"
+import Files from "../../components/Files/Files"
 
 export const Home = () => {
+    let path = localStorage.getItem("path")
     const [show, setShow] = useState(false)
     const [fold, setFolder] = useState('')
     const toggleOverlay = () => {
@@ -17,9 +19,11 @@ export const Home = () => {
     };
     const createF = () => {
         setShow(true)
-        createFolder("test/",fold)
+        createFolder(path,fold)
         setShow(false)
     }
+    let fo = ViewFolders(path)
+    let fi = ViewFiles(path)
     return(
         <div className="Home">
             <Navbar />
@@ -39,8 +43,8 @@ export const Home = () => {
                     <form onSubmit={createF}>
                         <input type="test" onChange={e => setFolder(e.target.value)} name="folder" required/>
                         <div class="but">
-                            <button onClick={toggleOverlay} class="fbutton" style={{color: "black", backgroundColor: "white"}}>Cancel</button>
-                            <button type="submit" class="fbutton" onClick={createF}>Create</button>
+                            <button onClick={toggleOverlay} class="button" style={{color: "black", backgroundColor: "white"}}>Cancel</button>
+                            <button type="submit" class="button" onClick={createF}>Create</button>
                         </div>
                     </form>
                 </div>
@@ -51,8 +55,16 @@ export const Home = () => {
             <br/>
             <center>
                 <div class="FilesBox">
-                    <Folders number={1} />
-                    <Folders number={2} />
+                    { 
+                        fo.map((folder, index) => {
+                            return <Folders name={folder} number={index} />
+                        })
+                    }
+                    { 
+                        fi.map((folder, index) => {
+                            return <Files name={folder}/>
+                        })
+                    }
                 </div>
             </center>
         </div>

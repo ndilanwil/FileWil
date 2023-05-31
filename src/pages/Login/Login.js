@@ -19,6 +19,7 @@ export const Login = () =>{
             register(username,email,password)
             createUserFolder(username)
             localStorage.setItem("path", username+"/")
+            console.log(localStorage.getItem("path"))
             navigate("/home")
         }
         else{
@@ -29,6 +30,8 @@ export const Login = () =>{
     const handleSubmit = (event) => {
         event.preventDefault();
         if(user===true){
+            localStorage.setItem("path", username+"/")
+            console.log(localStorage.getItem("path"))
             navigate("/home")
         }
       }

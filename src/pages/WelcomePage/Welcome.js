@@ -3,6 +3,8 @@ import logo from "../../images/logo.png"
 import banner from "../../images/banner.png"
 import team from "../../images/team.png"
 import usage from "../../images/coming.png"
+import demo from "../../images/demo.png"
+
 
 export const Welcome = () => {
     return(
@@ -65,7 +67,7 @@ export const Welcome = () => {
                 <hr/>
             </div>
             <div class="video">
-                <img width="100%" src="./image/demo.png" alt="" />
+                <img width="100%" src={demo} alt="" />
             </div>
         </section>
         <section id="about" class="about">

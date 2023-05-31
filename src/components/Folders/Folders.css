@@ -8,7 +8,6 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom: 1px solid #0b2243;
-    margin-bottom: 2px;
 }
 
 .Folder1:hover {
@@ -33,9 +32,18 @@ label {
     cursor: pointer;
 }
 
+.delete1 {
+    background-color: red;
+    width: 40px;
+    height: 100%;
+    border: 1px solid red;
+    cursor: pointer;    
+    border-top-right-radius: 10px;
+}
 .delete {
     background-color: red;
     width: 40px;
     height: 100%;
     border: 1px solid red;
+    cursor: pointer;    
 }

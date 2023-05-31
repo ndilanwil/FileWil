@@ -12,6 +12,7 @@ const s3 = new AWS.S3();
 
 
 export default function ViewFiles(path){
+  console.log(localStorage.getItem("path"))
   const [files, setFiles] = useState([])  
 
     var params = {
@@ -21,15 +22,14 @@ export default function ViewFiles(path){
       s3.listObjectsV2(params, function(err, data) {
         if (err) console.log(err, err.stack); // an error occurred
         else{
-            console.log(data.Contents);
             let array = []
             data.Contents.map(element => {
               array.push(element.Key.split(path)[1])
             })
             array.shift()
-            console.log(array)
-            array = array.filter(index => !index.endsWith('/'));
-            console.log(array);
+            if(array.length>0){
+              array = array.filter(index => !index.endsWith('/'));
+            }
             setFiles(array)
         }     
       });
