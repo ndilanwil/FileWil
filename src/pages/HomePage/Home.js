@@ -7,12 +7,9 @@ import createFolder from "../../components/Bucket/createFolder"
 import { useNavigate } from "react-router-dom";
 import ViewFiles from "../../components/Bucket/viewFiles"
 import ViewFolders from "../../components/Bucket/viewFolders"
-
+import Folders from "../../components/Folders/Folders"
 
 export const Home = () => {
-    console.log(ViewFiles("test/"))
-    console.log(ViewFolders("test/"))
-    const navigate = useNavigate();
     const [show, setShow] = useState(false)
     const [fold, setFolder] = useState('')
     const toggleOverlay = () => {
@@ -32,6 +29,7 @@ export const Home = () => {
                 <button class="HomeButton" ><img src={upload} alt="upload" width="20" style={{marginRight: "10px"}}/>Upload File</button>
             </div>
             {show && 
+                <center>
                 <div class="fold">
                 <center>
                 <div class="createFolder">
@@ -48,11 +46,13 @@ export const Home = () => {
                 </div>
                 </center>
                 </div>
+                </center>
             }
             <br/>
             <center>
                 <div class="FilesBox">
-
+                    <Folders number={1} />
+                    <Folders number={2} />
                 </div>
             </center>
         </div>

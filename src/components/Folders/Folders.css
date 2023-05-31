@@ -1,0 +1,41 @@
+.Folder1{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    width: 100%;
+    height: 6vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 1px solid #0b2243;
+    margin-bottom: 2px;
+}
+
+.Folder1:hover {
+    background: #4fb9e9;
+}
+
+.Folder{
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    width: 100%;
+    height: 6vh;
+    border-bottom: 1px solid #0b2243;
+}
+
+.Folder:hover {
+    background: #4fb9e9;
+}
+
+label {
+    cursor: pointer;
+}
+
+.delete {
+    background-color: red;
+    width: 40px;
+    height: 100%;
+    border: 1px solid red;
+}
