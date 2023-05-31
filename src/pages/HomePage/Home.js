@@ -5,8 +5,13 @@ import upload from "../../images/upload.png"
 import { useState } from "react"
 import createFolder from "../../components/Bucket/createFolder"
 import { useNavigate } from "react-router-dom";
+import ViewFiles from "../../components/Bucket/viewFiles"
+import ViewFolders from "../../components/Bucket/viewFolders"
+
 
 export const Home = () => {
+    console.log(ViewFiles("test/"))
+    console.log(ViewFolders("test/"))
     const navigate = useNavigate();
     const [show, setShow] = useState(false)
     const [fold, setFolder] = useState('')
