@@ -12,7 +12,6 @@ const s3 = new AWS.S3();
 
 
 export default function ViewFiles(path){
-  console.log(localStorage.getItem("path"))
   const [files, setFiles] = useState([])  
 
     var params = {
@@ -28,7 +27,7 @@ export default function ViewFiles(path){
             })
             array.shift()
             if(array.length>0){
-              array = array.filter(index => !index.endsWith('/'));
+              array = array.filter(index => !index.endsWith('/') && !index.includes("/"));
             }
             setFiles(array)
         }     

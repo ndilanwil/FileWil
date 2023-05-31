@@ -2,18 +2,29 @@ import "./Home.css"
 import {Navbar} from "../../components/Navbar/Navbar"
 import folder from "../../images/folder.png"
 import upload from "../../images/upload.png"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import createFolder from "../../components/Bucket/createFolder"
+import uploadFile from "../../components/Bucket/uploadFile"
 import { useNavigate } from "react-router-dom";
 import ViewFiles from "../../components/Bucket/viewFiles"
 import ViewFolders from "../../components/Bucket/viewFolders"
 import Folders from "../../components/Folders/Folders"
 import Files from "../../components/Files/Files"
+import Back from "../../components/Folders/Back"
 
 export const Home = () => {
     let path = localStorage.getItem("path")
     const [show, setShow] = useState(false)
     const [fold, setFolder] = useState('')
+    const [selectedFile, setSelectedFile] = useState(null);
+    const fileInputRef = useRef();
+
+    const handleFileInput = (event) => {
+        setSelectedFile(event.target.files[0]);
+        let body = event.target.files[0]
+        let name = event.target.files[0].name
+        uploadFile(path,body,name)
+    };
     const toggleOverlay = () => {
         setShow(!show);
     };
@@ -22,6 +33,9 @@ export const Home = () => {
         createFolder(path,fold)
         setShow(false)
     }
+      const handleClick = () => {
+        fileInputRef.current.click();
+      };
     let fo = ViewFolders(path)
     let fi = ViewFiles(path)
     return(
@@ -30,7 +44,8 @@ export const Home = () => {
             <br/>
             <div class="buttons">
                 <button onClick={toggleOverlay} class="HomeButton"><img src={folder} alt="folder" width="20" style={{marginRight: "10px"}}/>Create Folder</button>
-                <button class="HomeButton" ><img src={upload} alt="upload" width="20" style={{marginRight: "10px"}}/>Upload File</button>
+                <button onClick={handleClick} class="HomeButton" ><img src={upload} alt="upload" width="20" style={{marginRight: "10px"}}/>Upload File</button>
+                <input type="file"ref={fileInputRef}style={{ display: "none" }}onChange={handleFileInput}/>
             </div>
             {show && 
                 <center>
@@ -64,6 +79,10 @@ export const Home = () => {
                         fi.map((folder, index) => {
                             return <Files name={folder}/>
                         })
+                    }
+                    {
+                        (path.split("/").length - 1 != 1) && 
+                            <Back />
                     }
                 </div>
             </center>

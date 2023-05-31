@@ -31,7 +31,6 @@ export const Login = () =>{
         event.preventDefault();
         if(user===true){
             localStorage.setItem("path", username+"/")
-            console.log(localStorage.getItem("path"))
             navigate("/home")
         }
       }

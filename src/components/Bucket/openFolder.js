@@ -1,5 +1,4 @@
 export default function openFolder(folder){
-    let actual = localStorage.get("path")
+    let actual = localStorage.getItem("path")
     localStorage.setItem("path", actual + folder)
-    console.log("path = " = localStorage.get("path"))
 }

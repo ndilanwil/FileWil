@@ -27,7 +27,7 @@ export default function ViewFolders(path){
             })
             array.shift()
             if(array.length>0){
-              array = array.filter(index => index.endsWith('/'));
+              array = array.filter(index => index.endsWith('/') && index.split("/").length - 1 == 1);
             }
             setFolders(array)
         }     
