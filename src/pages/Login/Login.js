@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Alert from '@mui/material/Alert';
  
 export const Login = () =>{
+    localStorage.setItem("username", null)
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
