@@ -2,28 +2,42 @@ import "./Login.css"
 import {useState} from "react"
 import register from "../../components/Authentifications/registration"
 import Log from "../../components/Authentifications/login"
+import Check from "../../components/Authentifications/Check"
 import createUserFolder from "../../components/Bucket/createUserFolder"
 import { useNavigate } from "react-router-dom";
-
+import Alert from '@mui/material/Alert';
+ 
 export const Login = () =>{
     const navigate = useNavigate();
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUserName] = useState('')
     const [cpassword, setcPassword] = useState('')
+    const [alert, setAlert] = useState(false)
+    const [alert1, setAlert1] = useState(false)
+    const [alert2, setAlert2] = useState(false)
     const [isContainerActive, setIsContainerActive] = useState(false);
     const signUp = () => {setIsContainerActive(true)}
     const signIn = () => {setIsContainerActive(false)}
+    let test = Check(username,email)
     const Valid = async () => {
         if(cpassword === password){
-            register(username,email,password)
-            createUserFolder(username)
-            localStorage.setItem("path", username+"/")
-            console.log(localStorage.getItem("path"))
-            navigate("/home")
+            if(test==true){
+                setAlert2(true)
+            }
+            else{
+                register(username,email,password)
+                createUserFolder(username)
+                localStorage.setItem("path", username+"/")
+                localStorage.setItem("email", email)
+                localStorage.setItem("username", username)
+                localStorage.setItem("password", password)
+                console.log(localStorage.getItem("path"))
+                navigate("/home")
+            }
         }
         else{
-            window.alert("Passwords must be the same");
+            setAlert1(true)
         }
     }
     const user = Log(username,password) 
@@ -31,11 +45,32 @@ export const Login = () =>{
         event.preventDefault();
         if(user===true){
             localStorage.setItem("path", username+"/")
+            localStorage.setItem("email", email)
+            localStorage.setItem("username", username)
+            localStorage.setItem("password", password)
             navigate("/home")
+        }
+        else{
+            setAlert(true)
         }
       }
     return(
         <div class="log">
+            {alert &&
+                <Alert variant="filled" severity="error">
+                    Wrong Username or password. Please check your inputs
+                </Alert>
+            }
+            {alert1 &&
+                <Alert variant="filled" severity="warning">
+                    Passwords must be the same. Re-verify
+                </Alert>
+            }
+            {alert2 &&
+                <Alert variant="filled" severity="error">
+                    Sorry username or email is already used
+                </Alert>
+            }
             <a class="home" href="./" style={{color: "#4fb9e9"}}> &larr; Home</a>
         <div className={`container${isContainerActive ? " right-panel-active" : ""}`} id="container">
             <div class="form-container sign-up-container">

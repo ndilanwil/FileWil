@@ -10,7 +10,7 @@ AWS.config.update({
 
 const docClient = new AWS.DynamoDB.DocumentClient()
 
-export default function Update(username, password) {
+export default function Check(username, email) {
       const [toReturn, setToReturn] = useState(false)
       let params = {
           TableName: "users"
@@ -20,7 +20,7 @@ export default function Update(username, password) {
       if (err) {
           console.log(err);
       } else {
-          if(data.Items.find(element => element.username===username && element.password === password)!=null){
+          if(data.Items.find(element => element.username===username || element.email === email)!=null){
             setToReturn(true)
           }
           else{

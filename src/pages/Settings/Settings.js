@@ -1,9 +1,27 @@
 import "./Settings.css"
 import user from "../../images/user.png"
+import { useState } from "react"
+import Update from "../../components/Authentifications/update"
+import Alert from '@mui/material/Alert';
 
 export const Settings = () => {
+    const em = localStorage.getItem("email")
+    const us = localStorage.getItem("username")
+    const [email, setEmail] = useState('')
+    const [username, setUsername] = useState('')
+    const [alert, setAlert] = useState(false)
+    const [password, setPasswor] = useState('')
+    const handleClick = (e) => {
+        e.preventDefault();
+        setAlert(true)
+      }
     return(
             <div class="wrapper bg-white mt-sm-5">
+                {alert &&
+                <Alert variant="filled" severity="info">
+                    This feature is not yet avaible, We will notify you as soon as the app is 100% functional
+                </Alert>
+            }
         <h4 class="pb-4 border-bottom" style={{color: "#0b2243"}}>Account settings</h4>
         <div class="d-flex align-items-start py-3 border-bottom">
             <img src={user}
@@ -18,11 +36,11 @@ export const Settings = () => {
             <div class="row py-2">
                 <div class="col-md-6">
                     <label for="firstname">Username</label>
-                    <input type="text" class="bg-light form-control" placeholder="Steve" />
+                    <input type="text" class="bg-light form-control" placeholder={us} />
                 </div>
                 <div class="col-md-6 pt-md-0 pt-3">
                 <   label for="email">Email Address</label>
-                    <input type="email" class="bg-light form-control" placeholder="steve_@email.com" />
+                    <input type="email" class="bg-light form-control" placeholder={em} />
                 </div>
             </div>
             <div class="row py-2">
@@ -36,8 +54,8 @@ export const Settings = () => {
                 </div>
             </div>
             <div class="py-3 pb-4 border-bottom">
-                <button class="btn btn-primary mr-3">Save Changes</button>
-                <button class="btn border button">Cancel</button>
+                <button onClick={handleClick} class="btn btn-primary mr-3">Save Changes</button>
+                <a href="/home" class="btn border button">Cancel</a>
             </div>
             <div class="d-sm-flex align-items-center pt-3" id="deactivate">
                 <div>
@@ -45,7 +63,7 @@ export const Settings = () => {
                     <p>This will completely remove your account from File.Wil</p>
                 </div>
                 <div class="ml-auto">
-                    <button class="btn danger">Deactivate</button>
+                    <button onClick={handleClick} class="btn danger">Deactivate</button>
                 </div>
             </div>
         </div>
